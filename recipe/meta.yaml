@@ -1,17 +1,16 @@
-{% set version = "3.1.5" %}
-{% set commit = "1535d223d5df0c8f6a2722796efb96c845c25405" %}
+{% set version = "4.0.1" %}
 
 package:
   name: mpfr
   version: {{ version }}
 
 source:
-  fn: mpfr-{{ version }}.tar.bz2                                                    # [unix]
-  url: http://ftp.gnu.org/gnu/mpfr/mpfr-{{ version }}.tar.gz                        # [unix]
-  sha256: f4eb5070883aee3fd8b927751ea63ff95aebe24418cde852439ce74c3dd2513c          # [unix]
-  fn: {{ commit }}.zip                                                              # [win]
-  url: https://github.com/BrianGladman/mpfr/archive/{{ commit }}.zip                # [win]
-  sha256: 050eb5f8c40e634d2681b5d84764b75bb103c35a7491e999d6a5b3a94b34f325          # [win]
+  fn: mpfr-{{ version }}.tar.bz2
+  url: http://ftp.gnu.org/gnu/mpfr/mpfr-{{ version }}.tar.gz
+  sha256: e650f8723bfc6eca4f222c021db3d5d4cebe2e21c82498329bb9e6815b99c88c
+  patches:
+  - patches/build-vc14.patch
+  - patches/corei5.patch
 
 build:
   number: 0
