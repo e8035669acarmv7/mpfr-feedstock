@@ -1,17 +1,15 @@
 {% set version = "4.0.1" %}
-{% set commit = "1535d223d5df0c8f6a2722796efb96c845c25405" %}
 
 package:
   name: mpfr
   version: {{ version }}
 
 source:
-  fn: mpfr-{{ version }}.tar.bz2                                                    # [unix]
-  url: http://ftp.gnu.org/gnu/mpfr/mpfr-{{ version }}.tar.gz                        # [unix]
+  fn: mpfr-{{ version }}.tar.bz2
+  url: http://ftp.gnu.org/gnu/mpfr/mpfr-{{ version }}.tar.gz
   sha256: e650f8723bfc6eca4f222c021db3d5d4cebe2e21c82498329bb9e6815b99c88c
-  fn: {{ commit }}.zip                                                              # [win]
-  url: https://github.com/BrianGladman/mpfr/archive/{{ commit }}.zip                # [win]
-  sha256: e650f8723bfc6eca4f222c021db3d5d4cebe2e21c82498329bb9e6815b99c88c
+  patches:
+  - patches/build-vc14.patch
 
 build:
   number: 0
