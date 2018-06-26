@@ -15,13 +15,15 @@ source:
 build:
   number: 0
   skip: True  # [win and vc<14]
+  run_exports:
+    - {{ pin_subpackage("mpfr") }}
 
 requirements:
   build:
     - libtool         # [unix]
+    - m4              # [unix]
     - {{ compiler('c') }}
   host:
-    - m4              # [unix]
     - gmp             # [unix]
     - mpir            # [win]
   run:
