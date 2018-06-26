@@ -14,22 +14,19 @@ source:
 
 build:
   number: 0
-  features:
-    - vc14            # [win]
-  msvc_compiler: 14.0
+  skip: True  # [vc<14]
 
 requirements:
   build:
-    - toolchain
-    - m4              # [unix]
     - libtool         # [unix]
+    - {{ compiler('c') }}
+  host:
+    - m4              # [unix]
     - gmp             # [unix]
-    - vc 14           # [win]
     - mpir            # [win]
   run:
     - gmp             # [unix]
     - mpir            # [win]
-    - vc 14           # [win]
 
 test:
   commands:
