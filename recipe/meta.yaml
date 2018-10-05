@@ -13,7 +13,7 @@ source:
   - patches/corei5.patch
 
 build:
-  number: 0
+  number: 1000
   skip: True  # [win and vc<14]
   run_exports:
     - {{ pin_subpackage("mpfr") }}
@@ -31,14 +31,18 @@ requirements:
     - mpir            # [win]
 
 test:
+  requires:
+    - {{ compiler('c') }}
+    - libtool         # [unix]
+    - m4              # [unix]
+
   commands:
     - if not exist %LIBRARY_INC%\\mpfr.h exit 1                # [win]
     - if not exist %LIBRARY_LIB%\\mpfr.lib exit 1              # [win]
     - if not exist %LIBRARY_BIN%\\mpfr.dll exit 1              # [win]
     - if not exist %LIBRARY_LIB%\\mpfr_static.lib exit 1       # [win]
     - test -f ${PREFIX}/lib/libmpfr.a                          # [unix]
-    - test -f ${PREFIX}/lib/libmpfr.dylib                      # [osx]
-    - test -f ${PREFIX}/lib/libmpfr.so                         # [linux]
+    - test -f ${PREFIX}/lib/libmpfr${SHLIB_EXT}                # [unix]
 
 about:
   home: http://www.mpfr.org/
@@ -50,3 +54,4 @@ extra:
   recipe-maintainers:
     - isuruf
     - jakirkham
+    - marcelotrevisani
