@@ -1,4 +1,4 @@
-{% set version = "4.0.1" %}
+{% set version = "4.0.2" %}
 
 package:
   name: mpfr
@@ -7,13 +7,13 @@ package:
 source:
   fn: mpfr-{{ version }}.tar.bz2
   url: http://ftp.gnu.org/gnu/mpfr/mpfr-{{ version }}.tar.gz
-  sha256: e650f8723bfc6eca4f222c021db3d5d4cebe2e21c82498329bb9e6815b99c88c
+  sha256: ae26cace63a498f07047a784cd3b0e4d010b44d2b193bab82af693de57a19a78
   patches:
   - patches/build-vc14.patch
   - patches/corei5.patch
 
 build:
-  number: 1000
+  number: 0
   skip: True  # [win and vc<14]
   run_exports:
     - {{ pin_subpackage("mpfr") }}
