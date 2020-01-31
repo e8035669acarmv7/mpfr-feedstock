@@ -13,7 +13,7 @@ source:
   - patches/corei5.patch
 
 build:
-  number: 0
+  number: 1
   skip: True  # [win and vc<14]
   run_exports:
     - {{ pin_subpackage("mpfr") }}
@@ -25,9 +25,6 @@ requirements:
     - make            # [unix]
     - {{ compiler('c') }}
   host:
-    - gmp             # [unix]
-    - mpir            # [win]
-  run:
     - gmp             # [unix]
     - mpir            # [win]
 
