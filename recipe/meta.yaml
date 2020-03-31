@@ -13,8 +13,7 @@ source:
   - patches/corei5.patch
 
 build:
-  number: 0
-  skip: True  # [win and vc<14]
+  number: 1
   run_exports:
     - {{ pin_subpackage("mpfr") }}
 
