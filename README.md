@@ -3,7 +3,7 @@ About mpfr
 
 Home: http://www.mpfr.org/
 
-Package license: LGPL 3
+Package license: LGPL-3.0-only
 
 Feedstock license: BSD 3-Clause
 
@@ -27,13 +27,6 @@ Current build status
     <td>
       <a href="https://cloud.drone.io/conda-forge/mpfr-feedstock">
         <img alt="linux" src="https://img.shields.io/drone/build/conda-forge/master.svg?label=Linux">
-      </a>
-    </td>
-  </tr><tr>
-    <td>Appveyor</td>
-    <td>
-      <a href="https://ci.appveyor.com/project/conda-forge/mpfr-feedstock/branch/master">
-        <img alt="windows" src="https://img.shields.io/appveyor/ci/conda-forge/mpfr-feedstock/master.svg?label=Windows">
       </a>
     </td>
   </tr>
@@ -78,10 +71,10 @@ Current build status
                 </a>
               </td>
             </tr><tr>
-              <td>win_c_compilervs2015vc14</td>
+              <td>win</td>
               <td>
                 <a href="https://dev.azure.com/conda-forge/feedstock-builds/_build/latest?definitionId=643&branchName=master">
-                  <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/mpfr-feedstock?branchName=master&jobName=win&configuration=win_c_compilervs2015vc14" alt="variant">
+                  <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/mpfr-feedstock?branchName=master&jobName=win&configuration=win_" alt="variant">
                 </a>
               </td>
             </tr>
