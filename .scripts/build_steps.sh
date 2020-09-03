@@ -34,11 +34,7 @@ if [[ "${HOST_PLATFORM}" != "${BUILD_PLATFORM}" ]]; then
 fi
 
 conda build "${RECIPE_ROOT}" -m "${CI_SUPPORT}/${CONFIG}.yaml" \
-<<<<<<< HEAD
-    --suppress-variables \
-=======
     --suppress-variables ${EXTRA_CB_OPTIONS:-} \
->>>>>>> 41d939b8ba7519931bec8a32df8d318def443d8b
     --clobber-file "${CI_SUPPORT}/clobber_${CONFIG}.yaml"
 validate_recipe_outputs "${FEEDSTOCK_NAME}"
 
