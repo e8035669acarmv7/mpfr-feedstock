@@ -21,5 +21,5 @@ fi
 make install
 
 if [[ "$target_platform" == "win-64" ]]; then
-  cp $PREFIX/lib/mpfr-6.dll $PREFIX/lib/mpfr.dll
+  cp $PREFIX/bin/mpfr-6.dll $PREFIX/bin/mpfr.dll
 fi
