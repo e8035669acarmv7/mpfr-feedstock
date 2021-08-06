@@ -1,11 +1,12 @@
 #!/bin/bash
 
 # Get an updated config.sub and config.guess
-cp $BUILD_PREFIX/share/libtool/build-aux/config.* .
+cp $BUILD_PREFIX/share/gnuconfig/config.* . || true
 
 ./configure --prefix=$PREFIX \
-            --with-gmp=$PREFIX \
-            --enable-static
+            --with-gmp=$PREFIX
+
+[[ "$target_platform" == "win-64" ]] && patch_libtool
 
 make -j${CPU_COUNT}
 if [[ "$CONDA_BUILD_CROSS_COMPILATION" != 1 ]]; then

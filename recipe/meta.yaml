@@ -8,9 +8,6 @@ source:
   fn: mpfr-{{ version }}.tar.bz2
   url: http://ftp.gnu.org/gnu/mpfr/mpfr-{{ version }}.tar.gz
   sha256: 3127fe813218f3a1f0adf4e8899de23df33b4cf4b4b3831a5314f78e65ffa2d6
-  patches:
-    - patches/build-vc14.patch
-    - patches/corei5.patch
 
 build:
   number: 0
@@ -23,7 +20,9 @@ requirements:
     - libtool         # [unix]
     - m4              # [unix]
     - make            # [unix]
+    - gnuconfig       # [unix]
     - {{ compiler('c') }}
+    - autotools_clang_conda  # [win]
   host:
     - gmp             # [unix]
     - mpir            # [win]
