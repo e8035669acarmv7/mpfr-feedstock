@@ -1,4 +1,4 @@
-{% set version = "4.0.2" %}
+{% set version = "4.1.0" %}
 
 package:
   name: mpfr
@@ -7,14 +7,11 @@ package:
 source:
   fn: mpfr-{{ version }}.tar.bz2
   url: http://ftp.gnu.org/gnu/mpfr/mpfr-{{ version }}.tar.gz
-  sha256: ae26cace63a498f07047a784cd3b0e4d010b44d2b193bab82af693de57a19a78
-  patches:
-  - patches/build-vc14.patch
-  - patches/corei5.patch
+  sha256: 3127fe813218f3a1f0adf4e8899de23df33b4cf4b4b3831a5314f78e65ffa2d6
 
 build:
-  number: 1
-  skip: True  # [win and vc<14]
+  number: 0
+  skip: true  # [win and vc<14]
   run_exports:
     - {{ pin_subpackage("mpfr") }}
 
@@ -23,7 +20,9 @@ requirements:
     - libtool         # [unix]
     - m4              # [unix]
     - make            # [unix]
+    - gnuconfig       # [unix]
     - {{ compiler('c') }}
+    - autotools_clang_conda  # [win]
   host:
     - gmp             # [unix]
     - mpir            # [win]
@@ -38,8 +37,6 @@ test:
     - if not exist %LIBRARY_INC%\\mpfr.h exit 1                # [win]
     - if not exist %LIBRARY_LIB%\\mpfr.lib exit 1              # [win]
     - if not exist %LIBRARY_BIN%\\mpfr.dll exit 1              # [win]
-    - if not exist %LIBRARY_LIB%\\mpfr_static.lib exit 1       # [win]
-    - test -f ${PREFIX}/lib/libmpfr.a                          # [unix]
     - test -f ${PREFIX}/lib/libmpfr${SHLIB_EXT}                # [unix]
 
 about:
