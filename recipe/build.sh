@@ -19,3 +19,7 @@ if [[ "$CONDA_BUILD_CROSS_COMPILATION" != 1 ]]; then
   make check
 fi
 make install
+
+if [[ "$target_platform" == "win-64" ]]; then
+  cp $PREFIX/lib/mpfr-6.dll $PREFIX/lib/mpfr.dll
+fi
