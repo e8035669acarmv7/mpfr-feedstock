@@ -37,8 +37,6 @@ test:
     - if not exist %LIBRARY_INC%\\mpfr.h exit 1                # [win]
     - if not exist %LIBRARY_LIB%\\mpfr.lib exit 1              # [win]
     - if not exist %LIBRARY_BIN%\\mpfr.dll exit 1              # [win]
-    - if not exist %LIBRARY_LIB%\\mpfr_static.lib exit 1       # [win]
-    - test -f ${PREFIX}/lib/libmpfr.a                          # [unix]
     - test -f ${PREFIX}/lib/libmpfr${SHLIB_EXT}                # [unix]
 
 about:
