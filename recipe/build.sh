@@ -6,6 +6,7 @@ cp $BUILD_PREFIX/share/gnuconfig/config.* . || true
 if [[ "$target_platform" == "win-64" ]]; then
   export CPPFLAGS="$CPPFLAGS -DMSC_USE_DLL"
   sed -i.bak "s@-Wl,--output-def,.libs/libmpfr-6.dll.def@@g" configure
+  sed -i.bak "s@ -version-info [0-9\:]\+@@g" src/Makefile.in
 fi
 
 ./configure --prefix=$PREFIX \
@@ -21,5 +22,5 @@ fi
 make install
 
 if [[ "$target_platform" == "win-64" ]]; then
-  cp $PREFIX/bin/mpfr-6.dll $PREFIX/bin/mpfr.dll
+  cp $PREFIX/bin/mpfr.dll $PREFIX/bin/mpfr-6.dll
 fi
