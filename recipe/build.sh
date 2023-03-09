@@ -15,6 +15,9 @@ fi
 
 [[ "$target_platform" == "win-64" ]] && patch_libtool
 
+# tsprintf may fail with mingw, see https://gitlab.inria.fr/mpfr/mpfr/-/blob/master/tests/tsprintf.c
+[[ "$target_platform" == "win-64" ]] && cp tests/tsin.c tests/tsprintf.c
+
 make -j${CPU_COUNT}
 if [[ "$CONDA_BUILD_CROSS_COMPILATION" != 1 ]]; then
   make check
