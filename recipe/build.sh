@@ -11,7 +11,8 @@ fi
 
 ./configure --prefix=$PREFIX \
             --with-gmp=$PREFIX \
-            --disable-static
+            --disable-static \
+            --enable-thread-safe
 
 [[ "$target_platform" == "win-64" ]] && patch_libtool
 
