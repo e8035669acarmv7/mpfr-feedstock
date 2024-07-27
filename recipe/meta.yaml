@@ -26,6 +26,7 @@ requirements:
     - gnuconfig
     - {{ posix }}make
     - {{ posix }}base             # [build_platform.startswith("win-")]
+    - {{ posix }}diffutils        # [build_platform.startswith("win-")]
     - {{ compiler('c') }}         # [unix]
     - {{ stdlib('c') }}           # [unix]
     - {{ compiler('m2w64_c') }}   # [win]
