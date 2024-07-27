@@ -1,4 +1,7 @@
 {% set version = "4.2.1" %}
+{% if build_platform is undefined %}
+{% set build_platform = "linux-64" %}
+{% endif %}
 {% set posix = "m2-" if build_platform.startswith("win-") else '' %}
 
 package:
