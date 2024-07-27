@@ -20,7 +20,8 @@ requirements:
     - libtool         # [unix]
     - m4              # [unix]
     - make            # [unix]
-    - gnuconfig       # [unix]
+    - gnuconfig
+    - m2-make         # [win]
     - {{ compiler('c') }}         # [unix]
     - {{ stdlib('c') }}           # [unix]
     - {{ compiler('m2w64_c') }}   # [win]
