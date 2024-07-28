@@ -3,19 +3,6 @@ About mpfr-feedstock
 
 Feedstock license: [BSD-3-Clause](https://github.com/conda-forge/mpfr-feedstock/blob/main/LICENSE.txt)
 
-
-About mpfr
-----------
-
-Home: http://www.mpfr.org/
-
-Package license: LGPL-3.0-only
-
-Summary: The MPFR library is a C library for multiple-precision floating-point computations with correct rounding.
-
-About mpfr
-----------
-
 Home: http://www.mpfr.org/
 
 Package license: LGPL-3.0-only
@@ -26,14 +13,7 @@ Current build status
 ====================
 
 
-<table><tr>
-    <td>Travis</td>
-    <td>
-      <a href="https://app.travis-ci.com/conda-forge/mpfr-feedstock">
-        <img alt="linux" src="https://img.shields.io/travis/com/conda-forge/mpfr-feedstock/main.svg?label=Linux">
-      </a>
-    </td>
-  </tr>
+<table>
     
   <tr>
     <td>Azure</td>
@@ -51,20 +31,6 @@ Current build status
               <td>
                 <a href="https://dev.azure.com/conda-forge/feedstock-builds/_build/latest?definitionId=643&branchName=main">
                   <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/mpfr-feedstock?branchName=main&jobName=linux&configuration=linux%20linux_64_" alt="variant">
-                </a>
-              </td>
-            </tr><tr>
-              <td>linux_aarch64</td>
-              <td>
-                <a href="https://dev.azure.com/conda-forge/feedstock-builds/_build/latest?definitionId=643&branchName=main">
-                  <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/mpfr-feedstock?branchName=main&jobName=linux&configuration=linux%20linux_aarch64_" alt="variant">
-                </a>
-              </td>
-            </tr><tr>
-              <td>linux_ppc64le</td>
-              <td>
-                <a href="https://dev.azure.com/conda-forge/feedstock-builds/_build/latest?definitionId=643&branchName=main">
-                  <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/mpfr-feedstock?branchName=main&jobName=linux&configuration=linux%20linux_ppc64le_" alt="variant">
                 </a>
               </td>
             </tr><tr>

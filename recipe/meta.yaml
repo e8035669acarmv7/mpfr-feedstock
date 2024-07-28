@@ -1,4 +1,8 @@
 {% set version = "4.2.1" %}
+{% if build_platform is undefined %}
+{% set build_platform = "linux-64" %}
+{% endif %}
+{% set posix = "m2-" if build_platform.startswith("win-") else '' %}
 
 package:
   name: mpfr
@@ -10,7 +14,7 @@ source:
   sha256: 116715552bd966c85b417c424db1bbdf639f53836eb361549d1f8d6ded5cb4c6
 
 build:
-  number: 1
+  number: 2
   skip: true  # [win and vc<14]
   run_exports:
     - {{ pin_subpackage("mpfr") }}
@@ -19,30 +23,34 @@ requirements:
   build:
     - libtool         # [unix]
     - m4              # [unix]
-    - make            # [unix]
-    - gnuconfig       # [unix]
-    - {{ compiler('c') }}
-    - autotools_clang_conda  # [win]
+    - gnuconfig
+    - {{ posix }}make
+    - {{ posix }}base             # [build_platform.startswith("win-")]
+    - {{ posix }}diffutils        # [build_platform.startswith("win-")]
+    - {{ compiler('c') }}         # [unix]
+    - {{ stdlib('c') }}           # [unix]
+    - {{ compiler('m2w64_c') }}   # [win]
+    - {{ stdlib('m2w64_c') }}     # [win]
   host:
-    - gmp             # [unix]
-    - mpir            # [win]
+    - gmp
 
 test:
   requires:
-    - {{ compiler('c') }}
-    - libtool         # [unix]
-    - m4              # [unix]
+    - {{ compiler('c') }}         # [unix]
+    - {{ stdlib('c') }}           # [unix]
+    - {{ compiler('m2w64_c') }}   # [win]
+    - {{ stdlib('m2w64_c') }}     # [win]
 
   commands:
     - if not exist %LIBRARY_INC%\\mpfr.h exit 1                # [win]
     - if not exist %LIBRARY_LIB%\\mpfr.lib exit 1              # [win]
-    - if not exist %LIBRARY_BIN%\\mpfr.dll exit 1              # [win]
+    - if not exist %LIBRARY_BIN%\\libmpfr-6.dll exit 1         # [win]
     - test -f ${PREFIX}/lib/libmpfr${SHLIB_EXT}                # [unix]
 
 about:
   home: http://www.mpfr.org/
   license: LGPL-3.0-only
-  license_file: {{ SRC_DIR }}/COPYING.LESSER
+  license_file: COPYING.LESSER
   summary: The MPFR library is a C library for multiple-precision floating-point computations with correct rounding.
 
 extra:
